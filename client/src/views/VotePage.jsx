@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import { doc, onSnapshot, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import Navbar from "../components/Navbar";
+import { useLocation } from "react-router-dom";
 
 export default function VotePage() {
   const [voters, setVoters] = useState([]);
   const [paslon, setPaslon] = useState([]);
   const [loading, setLoading] = useState(true);
+  const {search} = useLocation();
+  const [category, setCategory] = useState("")
 
   useEffect(() => {
-    const taskDocRef = doc(db, "polling", "1gKfIJ67nhluctB3hGeK");
+    const taskDocRef = doc(db, "polling", search.slice(1));
     const unsubscribe = onSnapshot(taskDocRef, (docSnapshot) => {
       const data = docSnapshot.data();
       let arr = [];
@@ -20,6 +23,7 @@ export default function VotePage() {
           data: data["vote"][key],
         });
       }
+      setCategory(data.voting)
       for (const key in data["vote"]) {
         arr2.push(data["vote"][key]["voters"]);
       }
@@ -32,7 +36,7 @@ export default function VotePage() {
   const handleUpdate = async (id) => {
     console.log(localStorage.name);
     if (!voters.join().includes(localStorage.name)) {
-      const taskDocRef = doc(db, "polling", "1gKfIJ67nhluctB3hGeK");
+      const taskDocRef = doc(db, "polling", search.slice(1));
       try {
         const docSnapshot = await getDoc(taskDocRef);
         const data = docSnapshot.data();
@@ -64,7 +68,7 @@ export default function VotePage() {
     >
     <div className="container mx-auto p-6 flex flex-wrap justify-center gap-5">
       <h2 className="text-3xl font-bold mb-4 w-full text-center text-primary">
-        Vote for President and Vice President
+      Vote for {category}
       </h2>
       {loading ? (
         <p>Loading...</p>

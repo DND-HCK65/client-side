@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CardButton from "./CardButton";
 import { doc, getDocs,collection } from "firebase/firestore";
 import { db } from "../firebase";
+import { Link } from "react-router-dom";
 
 export default function Cards() {
   const [category,setCategory] = useState([])
@@ -40,7 +41,9 @@ export default function Cards() {
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {e.data.context}
           </p>
+          <Link to={`/vote-page?${e.id}`}>
           <CardButton />
+          </Link>
         </div>
       </div>
       </>
