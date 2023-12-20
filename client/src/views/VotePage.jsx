@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { doc, onSnapshot, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 
-export default function PresidentVote() {
+export default function VotePage() {
   const [voters, setVoters] = useState([]);
   const [paslon, setPaslon] = useState([]);
   const [totalVotes, setTotalVotes] = useState(0);
