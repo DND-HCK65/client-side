@@ -1,6 +1,7 @@
 import Cards from "../components/Cards";
 
 export default function HomePage() {
+
   return (
     <div
       className="flex h-screen w-full items-center justify-center bg-gray-900 bg-cover bg-no-repeat bg-center"

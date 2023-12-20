@@ -5,11 +5,10 @@ import { db } from "../firebase";
 export default function VotePage() {
   const [voters, setVoters] = useState([]);
   const [paslon, setPaslon] = useState([]);
-  const [totalVotes, setTotalVotes] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const taskDocRef = doc(db, "polling", "twgMr9lMXePE7Q40iYjA");
+    const taskDocRef = doc(db, "polling", "1gKfIJ67nhluctB3hGeK");
     const unsubscribe = onSnapshot(taskDocRef, (docSnapshot) => {
       const data = docSnapshot.data();
       let arr = [];
@@ -25,15 +24,14 @@ export default function VotePage() {
       }
       setVoters(arr2);
       setPaslon(arr);
-      setTotalVotes(data.totalVotes);
       setLoading(false);
     });
-  }, [totalVotes]); // Add totalVotes as a dependency
+  }, []); // Add totalVotes as a dependency
 
   const handleUpdate = async (id) => {
     console.log(localStorage.name);
     if (!voters.join().includes(localStorage.name)) {
-      const taskDocRef = doc(db, "polling", "twgMr9lMXePE7Q40iYjA");
+      const taskDocRef = doc(db, "polling", "1gKfIJ67nhluctB3hGeK");
       try {
         const docSnapshot = await getDoc(taskDocRef);
         const data = docSnapshot.data();
@@ -46,7 +44,6 @@ export default function VotePage() {
         };
         await updateDoc(taskDocRef, {
           vote: updatedVote,
-          totalVotes: data.totalVotes + 1,
         });
       } catch (error) {
         console.log(error);

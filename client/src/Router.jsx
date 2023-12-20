@@ -6,6 +6,7 @@ import {
 import LandingPage from "./views/LandingPage";
 import HomePage from "./views/HomePage";
 import VotePage from "./views/VotePage";
+import Tes from "./views/TestPage";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,18 @@ const router = createBrowserRouter([
   {
     path: '/vote-page',
     element: <VotePage />,
+    loader: () => {
+      const name = localStorage.getItem('name')
+      if(name) {
+        return null
+      } else {
+        throw redirect ('/')
+      }
+    }
+  },
+  {
+    path: '/tes',
+    element: <Tes />,
     loader: () => {
       const name = localStorage.getItem('name')
       if(name) {
