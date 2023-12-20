@@ -22,12 +22,13 @@ export default function Cards() {
   }, []); 
   return (
     <>
+    <div className="flex flex-row gap-4">
     {category.map(e=>{
       return(
-
+        <>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <img
-          className="rounded-t-lg mx-auto h-80 w-80"
+          className="rounded-t-none mx-auto h-80 w-80"
           src={e.data.image}
           alt=""
         />
@@ -42,9 +43,11 @@ export default function Cards() {
           <CardButton />
         </div>
       </div>
+      </>
       )
 
     })}
+    </div>
     </>
   );
 }
