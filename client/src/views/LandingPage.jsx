@@ -29,11 +29,16 @@ export default function LandingPage() {
       }}
     >
       <div className="mx-auto">
+        <h1 
+        className="flex justify-center font-serif my-10 text-center text-3xl font-bold tracking-tight text-primary sm:text-5xl "
+        >
+            Welcome To Vote Place!
+        </h1>
         <div
           className="relative isolate overflow-hidden backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100
 	 px-6 py-24 shadow-2xl rounded-2xl sm:rounded-3xl sm:px-24 xl:py-32"
         >
-          <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-primary sm:text-4xl">
             Input your username
           </h2>
           <form
