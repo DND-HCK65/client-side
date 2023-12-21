@@ -76,7 +76,7 @@ export default function VotePage() {
         paslon.map((e) => (
           <div
             key={e.name}
-            className={`bg-white border border-gray-300 p-4 mb-4 cursor-pointer transition duration-300 ${
+            className={`bg-secondary border border-gray-500 p-4 mb-4 cursor-pointer transition duration-300 ${
               e.data.voters.length > 0 ? "active" : ""
             } rounded-lg w-full sm:w-1/2 md:w-1/3 lg:w-1/4`}
           >
@@ -84,7 +84,7 @@ export default function VotePage() {
               <img
                 src={e.data.image}
                 alt={e.name}
-                className="w-32 h-32 rounded-full mb-4 mx-auto"
+                className="w-60 h-60 rounded-lg mb-4 mx-auto"
               />
               <div className="card-body text-center">
                 <p className="text-blue-500 font-bold">{e.name}</p>

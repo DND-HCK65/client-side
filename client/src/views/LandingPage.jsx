@@ -32,14 +32,14 @@ export default function LandingPage() {
         <h1 
         className="flex justify-center font-serif my-10 text-center text-3xl font-bold tracking-tight text-primary sm:text-5xl "
         >
-            Welcome To Vote Place!
+            Welcome To Dnd Poll !
         </h1>
         <div
           className="relative isolate overflow-hidden backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100
 	 px-6 py-24 shadow-2xl rounded-2xl sm:rounded-3xl sm:px-24 xl:py-32"
         >
           <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-            Input your username
+            Input Your Username
           </h2>
           <form
             className="mx-auto mt-10 flex max-w-md gap-x-4

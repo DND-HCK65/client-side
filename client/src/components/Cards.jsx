@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CardButton from "./CardButton";
-import { doc, getDocs,collection } from "firebase/firestore";
+import { getDocs,collection } from "firebase/firestore";
 import { db } from "../firebase";
 import { Link } from "react-router-dom";
 
@@ -26,19 +26,19 @@ export default function Cards() {
     <div className="flex flex-row gap-4">
     {category.map(e=>{
       return(
-        <>
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <>
+      <div className="max-w-sm bg-secondary border border-gray-500 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <img
           className="rounded-t-none mx-auto h-80 w-80"
           src={e.data.image}
           alt=""
         />
         <div className="p-5">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mb-2 text-2xl font-bold tracking-tight text-black dark:text-white">
             {e.data.category}
           </h5>
 
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-black dark:text-white">
             {e.data.context}
           </p>
           <Link to={`/vote-page?${e.id}`}>
