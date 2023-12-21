@@ -87,7 +87,7 @@ export default function VotePage() {
                 className="w-60 h-60 rounded-lg mb-4 mx-auto"
               />
               <div className="card-body text-center">
-                <p className="text-blue-500 font-bold">{e.name}</p>
+                <p className="text-blue-500 font-bold">{e.data.name}</p>
                 <div className="flex-grow bg-gray-200 h-4 mt-4 rounded-full overflow-hidden">
                   <div
                     className={`h-full bg-green-500 rounded-full transition-all duration-300 ease-in-out`}
